@@ -52,7 +52,6 @@ const LoadingAnimation: React.FC = () => {
           </svg>
         </motion.div>
 
-        {/* Circular pulse */}
         <motion.div
           className="absolute inset-0 w-full h-full rounded-full border-2 border-[#427F39]"
           initial={{ scale: 0.2, opacity: 0.7 }}
@@ -69,7 +68,6 @@ const LoadingAnimation: React.FC = () => {
           suppressHydrationWarning
         />
         
-        {/* Smaller decorative circles */}
         {circles.map((circle) => (
           <motion.div
             key={circle.id}

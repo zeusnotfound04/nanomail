@@ -5,20 +5,17 @@ import {prisma} from "@/lib/prisma";
 import { cleanSenderEmail } from "./mailParser";
 import { simpleParser } from "mailparser";
 
-// Manual parser for quoted-printable encoded content
 function decodeQuotedPrintable(encoded: string): string {
   return encoded
-    .replace(/=\r?\n/g, '') // Remove soft line breaks
+    .replace(/=\r?\n/g, '')
     .replace(/=([0-9A-F]{2})/gi, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
 }
 
-// Extract MIME parts from multipart email
 function extractMimeParts(rawEmail: string): { html: string; text: string } {
   let html = '';
   let text = '';
   
   try {
-    // Find the boundary
     const boundaryMatch = rawEmail.match(/boundary=([^\s;]+)/i);
     console.log('🔧 Manual parser - boundary match:', boundaryMatch);
     
@@ -38,9 +35,7 @@ function extractMimeParts(rawEmail: string): { html: string; text: string } {
       console.log(`🔧 Part ${i} has text/html:`, part.includes('Content-Type: text/html'));
       console.log(`🔧 Part ${i} has text/plain:`, part.includes('Content-Type: text/plain'));
       
-      // Check if this is an HTML part
       if (part.includes('Content-Type: text/html')) {
-        // Match everything after the double newline (blank line after headers)
         const contentMatch = part.match(/Content-Transfer-Encoding: quoted-printable[\r\n]+\s*\r?\n([\s\S]+)$/);
         console.log('🔧 HTML content match:', !!contentMatch);
         if (contentMatch) {
@@ -48,9 +43,7 @@ function extractMimeParts(rawEmail: string): { html: string; text: string } {
           console.log('🔧 Decoded HTML length:', html.length);
         }
       }
-      // Check if this is a text part
       else if (part.includes('Content-Type: text/plain')) {
-        // Match everything after the double newline (blank line after headers)
         const contentMatch = part.match(/Content-Transfer-Encoding: quoted-printable[\r\n]+\s*\r?\n([\s\S]+)$/);
         console.log('🔧 Text content match:', !!contentMatch);
         if (contentMatch) {
@@ -124,7 +117,6 @@ export async function searchEmails(rcptQuery: string) {
         return [];
       }
 
-      // Parse emails on server side
       const output = await Promise.all(emails.map(async (email: PrismaEmail) => {
         console.log('📦 Database email:', {
           id: email.id,
@@ -138,14 +130,12 @@ export async function searchEmails(rcptQuery: string) {
         let parsedSubject = email.subject || '';
         
         try {
-          // Try manual parsing first
           const manualParsed = extractMimeParts(email.body || '');
           
           if (manualParsed.html || manualParsed.text) {
             htmlContent = manualParsed.html;
             textContent = manualParsed.text;
             
-            // Try to extract subject from email headers if not in DB
             if (!parsedSubject && email.body) {
               const subjectMatch = email.body.match(/^Subject:\s*(.+?)$/mi);
               if (subjectMatch) {
@@ -162,7 +152,6 @@ export async function searchEmails(rcptQuery: string) {
               subject: parsedSubject,
             });
           } else {
-            // Fallback to mailparser
             const emailBuffer = Buffer.from(email.body || '', 'utf-8');
             const parsed = await simpleParser(emailBuffer);
             

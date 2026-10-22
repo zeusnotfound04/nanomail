@@ -106,7 +106,6 @@ function InboxContent() {
       return;
     }
 
-    // Always update if the decoded username is different from current
     if (decoded !== decodedUsername) {
       console.log(`Switching inbox from "${decodedUsername}" to "${decoded}"`);
       setDecodedUsername(decoded);
@@ -114,7 +113,6 @@ function InboxContent() {
       setMobileView("list");
       setReadEmails([]);
       
-      // Clean URL when switching inboxes
       if (selectedEmailId) {
         router.replace(`/v1/inbox?q=${encodedQuery}`, { scroll: false });
       }

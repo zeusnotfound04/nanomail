@@ -33,7 +33,6 @@ async function cleanupEmails() {
 
     console.log('\n🔄 Connecting to database...');
     
-    // Count emails before deletion
     const emailCount = await prisma.email.count();
     console.log(`📊 Found ${emailCount} emails in the database`);
     
@@ -44,12 +43,10 @@ async function cleanupEmails() {
 
     console.log('\n🗑️  Starting email cleanup...');
     
-    // Delete all emails
     const deleteResult = await prisma.email.deleteMany({});
     
     console.log(`✅ Successfully deleted ${deleteResult.count} emails`);
     
-    // Reset auto-increment sequence (PostgreSQL)
     try {
       await prisma.$executeRaw`ALTER SEQUENCE "Email_id_seq" RESTART WITH 1`;
       console.log('✅ Successfully reset ID sequence');
@@ -71,7 +68,6 @@ async function cleanupEmails() {
   }
 }
 
-// Handle script interruption
 process.on('SIGINT', async () => {
   console.log('\n\n⚠️  Script interrupted by user');
   await prisma.$disconnect();
@@ -79,7 +75,6 @@ process.on('SIGINT', async () => {
   process.exit(0);
 });
 
-// Handle uncaught errors
 process.on('uncaughtException', async (error) => {
   console.error('❌ Uncaught error:', error.message);
   await prisma.$disconnect();
@@ -87,7 +82,6 @@ process.on('uncaughtException', async (error) => {
   process.exit(1);
 });
 
-// Run the cleanup
 cleanupEmails().catch(async (error) => {
   console.error('❌ Fatal error:', error.message);
   await prisma.$disconnect();

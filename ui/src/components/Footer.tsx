@@ -56,7 +56,6 @@ const Footer: React.FC = () => {
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
       >
-        {/* Ambient glow effect */}
         <motion.div 
           className={`absolute inset-0 rounded-full bg-gradient-to-r from-${primaryColor}/20 via-${secondaryColor}/10 to-${primaryColor}/20 opacity-80 blur-md`}
           animate={{

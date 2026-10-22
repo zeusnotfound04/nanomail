@@ -160,7 +160,6 @@ function Faq() {
     <section className="py-16 w-full bg-transparent relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00D8FF]/[0.03] to-transparent pointer-events-none" />
       
-      {/* Decorative elements */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.3 }}

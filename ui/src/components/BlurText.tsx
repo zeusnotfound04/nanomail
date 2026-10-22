@@ -18,7 +18,7 @@ interface BlurTextProps {
   animationTo?: Record<string, any>[];
   easing?: (t: number) => number | string;
   onAnimationComplete?: () => void;
-  highlightWords?: { word: string; color: string }[]; // New property to highlight specific words
+  highlightWords?: { word: string; color: string }[];
 }
 
 const BlurText: React.FC<BlurTextProps> = ({
@@ -41,7 +41,6 @@ const BlurText: React.FC<BlurTextProps> = ({
   const ref = useRef<HTMLParagraphElement>(null);
   const animatedCount = useRef(0);
 
-  // Default animations based on direction
   const defaultFrom: Record<string, any> = direction === 'top'
     ? { filter: 'blur(10px)', opacity: 0, transform: 'translate3d(0,-50px,0)' }
     : { filter: 'blur(10px)', opacity: 0, transform: 'translate3d(0,50px,0)' };
@@ -59,7 +58,6 @@ const BlurText: React.FC<BlurTextProps> = ({
   const isClient = useIsClient();
 
   useEffect(() => {
-    // If animation is already completed, don't re-observe
     if (animationCompleted) return;
     
     const observer = new IntersectionObserver(

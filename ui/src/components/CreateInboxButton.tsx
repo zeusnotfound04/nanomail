@@ -113,7 +113,6 @@ export default function CreateInboxButton( { handleCreateInbox }: { handleCreate
             Create Inbox
           </motion.span>
           
-          {/* Arrow icon */}
           <motion.svg 
             xmlns="http://www.w3.org/2000/svg" 
             className="h-4 w-4 ml-1.5 opacity-80" 

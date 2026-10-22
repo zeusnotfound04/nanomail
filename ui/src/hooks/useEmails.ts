@@ -20,7 +20,6 @@ export function useEmails(username: string) {
       const fetchedEmails = await searchEmails(username);
       console.log(`📧 Fetched ${fetchedEmails.length} pre-parsed emails from server`);
       
-      // Emails are already parsed on server side
       return fetchedEmails.map((email) => ({
         id: String(email.id),
         from: email.mail_from || "",
