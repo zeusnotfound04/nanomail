@@ -212,7 +212,7 @@ const NanoMailLogo = () => (
       className="ml-2 text-white font-bold text-lg"
     >
 
-      <span className="font-cooper font-normal">Nano</span><span className="text-[#11baa9]">Mail</span>
+      <span className="font-cooper">Nano</span><span className="text-[#11baa9]">Mail</span>
     </motion.span>
     </Link>
   </div>
