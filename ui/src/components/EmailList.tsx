@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { format } from "date-fns";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRightDoubleIcon, Mail01Icon, RefreshIcon } from "@hugeicons/core-free-icons";
 
 export interface Email {
   id: string;
@@ -41,10 +43,7 @@ const EmailList: React.FC<EmailListProps> = ({
     <div className="w-full bg-black/40 backdrop-blur-md rounded-xl border border-[#00D8FF]/30 overflow-hidden shadow-lg shadow-black/20">
       <div className="p-3 sm:p-4 border-b border-[#00D8FF]/30 flex items-center justify-between bg-black/60">
         <div className="flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 text-[#00D8FF]" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-          </svg>
+          <HugeiconsIcon icon={Mail01Icon} className="h-4 w-4 sm:h-5 sm:w-5 text-[#00D8FF]" />
           <h2 className="text-[#00D8FF] font-medium text-sm sm:text-base">Inbox</h2>
         </div>
         <div className="flex items-center gap-2">
@@ -59,9 +58,7 @@ const EmailList: React.FC<EmailListProps> = ({
             transition={{ duration: 0.3 }}
             className="text-white/60 hover:text-[#00D8FF] transition-colors"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
-            </svg>
+            <HugeiconsIcon icon={RefreshIcon} className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </motion.button>
         </div>
       </div>
@@ -119,10 +116,7 @@ const EmailList: React.FC<EmailListProps> = ({
                   whileHover={{ opacity: 1, scale: 1 }}
                   className="absolute right-2 sm:right-3 bottom-2 sm:bottom-3 opacity-0 bg-black/30 rounded-full p-0.5"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-[#00D8FF]" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    <path d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                  </svg>
+                  <HugeiconsIcon icon={ArrowRightDoubleIcon} className="h-3 w-3 sm:h-4 sm:w-4 text-[#00D8FF]" />
                 </motion.div>
               </motion.div>
             ))
@@ -144,10 +138,7 @@ const EmailList: React.FC<EmailListProps> = ({
                 }}
                 className="relative mb-4"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 sm:h-16 sm:w-16 text-[#00D8FF]/30" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
+                <HugeiconsIcon icon={Mail01Icon} className="h-12 w-12 sm:h-16 sm:w-16 text-[#00D8FF]/30" />
                 <motion.div
                   animate={{
                     opacity: [0, 0.5, 0],

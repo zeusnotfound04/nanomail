@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
 import { cn } from "@/lib/utils";
 
 interface FAQItemProps {
@@ -60,7 +61,7 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
             isOpen ? "text-[#11ba93]" : "text-gray-500 group-hover:text-[#00D8FF]/70"
           )}
         >
-          <ChevronDown className="h-4 w-4" />
+          <HugeiconsIcon icon={ArrowDown01Icon} className="h-4 w-4" />
         </motion.div>
       </button>
       <AnimatePresence initial={false}>

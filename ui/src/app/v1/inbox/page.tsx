@@ -12,6 +12,8 @@ import EmailParticleBackground from "@/components/EmailParticleBackground";
 import LoadingAnimation from "@/components/LoadingAnimation";
 import { motion } from "framer-motion";
 import { useEmails, type Email } from "@/hooks/useEmails";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Mail01Icon, PlusSignIcon, TextAlignLeftIcon } from "@hugeicons/core-free-icons";
 
 function InboxContent() {
   const searchParam = useSearchParams();
@@ -205,20 +207,7 @@ function InboxContent() {
                     whileTap={{ scale: 0.95 }}
                     className="flex items-center justify-center px-3 py-1.5 bg-black/40 hover:bg-black/60 border border-[#427F39]/30 rounded-md text-white/90 hover:text-[#427F39] transition-colors"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 mr-1.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 4v16m8-8H4"
-                      />
-                    </svg>
+                    <HugeiconsIcon icon={PlusSignIcon} className="h-4 w-4 mr-1.5" />
                     New
                   </motion.button>
                   <motion.button
@@ -280,20 +269,7 @@ function InboxContent() {
                       : "text-white/60 hover:text-white/80"
                   }`}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4 6h16M4 12h16M4 18h7"
-                    />
-                  </svg>
+                  <HugeiconsIcon icon={TextAlignLeftIcon} className="h-4 w-4" />
                   <span>Inbox</span>
                 </button>
                 <button
@@ -304,20 +280,7 @@ function InboxContent() {
                       : "text-white/60 hover:text-white/80"
                   }`}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
+                  <HugeiconsIcon icon={Mail01Icon} className="h-4 w-4" />
                   <span>Message</span>
                 </button>
               </div>

@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Mail01Icon } from "@hugeicons/core-free-icons";
 
 interface CircleProps {
   id: number;
@@ -37,19 +39,7 @@ const LoadingAnimation: React.FC = () => {
           }}
           suppressHydrationWarning
         >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="1.5" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className="w-full h-full text-[#00D8FF]"
-          >
-            <path d="M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4.5" />
-            <path d="m22 10.5-8.45 4.225a2 2 0 0 1-1.1.275 2 2 0 0 1-1.1-.275L3 10.5" />
-          </svg>
+          <HugeiconsIcon icon={Mail01Icon} className="w-full h-full text-[#00D8FF]" />
         </motion.div>
 
         <motion.div

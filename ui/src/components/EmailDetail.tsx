@@ -5,6 +5,8 @@ import { motion } from "motion/react";
 import { format } from "date-fns";
 import { Email } from "./EmailList";
 import DOMPurify from 'dompurify';
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowLeft02Icon, Bookmark02Icon, InboxIcon, InformationCircleIcon, SquareLock02Icon } from "@hugeicons/core-free-icons";
 
 interface EmailDetailProps {
   email: Email | null;
@@ -40,9 +42,7 @@ const EmailDetail: React.FC<EmailDetailProps> = ({ email, onBack }) => {
             }}
             className="relative mx-auto mb-4 sm:mb-6 w-16 h-16 sm:w-24 sm:h-24"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full text-[#00D8FF]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-            </svg>
+            <HugeiconsIcon icon={InboxIcon} className="h-full w-full text-[#00D8FF]/30" />
             <motion.div
               className="absolute inset-0 rounded-full bg-[#00D8FF]/5"
               animate={{
@@ -55,9 +55,7 @@ const EmailDetail: React.FC<EmailDetailProps> = ({ email, onBack }) => {
           <p className="text-sm sm:text-base mb-4 sm:mb-6">Select an email from your inbox to view its content</p>
 
           <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-white/40">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            <HugeiconsIcon icon={InformationCircleIcon} className="h-4 w-4 sm:h-5 sm:w-5" />
             <p>To protect your privacy, emails are deleted after 7 days.</p>
           </div>
         </div>
@@ -80,9 +78,7 @@ const EmailDetail: React.FC<EmailDetailProps> = ({ email, onBack }) => {
             onClick={onBack}
             className="flex items-center gap-1 text-white/80 hover:text-white mb-3 text-xs"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
+            <HugeiconsIcon icon={ArrowLeft02Icon} className="h-4 w-4" />
             Back to inbox
           </motion.button>
         )}
@@ -121,9 +117,7 @@ const EmailDetail: React.FC<EmailDetailProps> = ({ email, onBack }) => {
               whileTap={{ scale: 0.95 }}
               className="text-white/60 hover:text-[#00D8FF] transition-colors p-1 sm:p-1.5 rounded-full hover:bg-white/5"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-              </svg>
+              <HugeiconsIcon icon={Bookmark02Icon} className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </motion.button>
   
           </div>
@@ -181,9 +175,7 @@ const EmailDetail: React.FC<EmailDetailProps> = ({ email, onBack }) => {
 
       <div className="p-3 sm:p-4 border-t border-[#00D8FF]/30 bg-black/60 flex justify-between items-center flex-wrap sm:flex-nowrap gap-2">
         <div className="flex items-center gap-1 text-white/40 text-[10px] sm:text-xs order-3 sm:order-1 w-full sm:w-auto">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-          </svg>
+          <HugeiconsIcon icon={SquareLock02Icon} className="h-3 w-3 sm:h-4 sm:w-4" />
           <span>Temporary inbox - emails auto-delete after 7 days</span>
         </div>
 
