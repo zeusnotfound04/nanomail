@@ -2,6 +2,7 @@
 import React, { useState, useEffect, ReactNode, AnchorHTMLAttributes } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const transition = {
@@ -107,12 +108,10 @@ export const Menu = ({
     >
       <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#00D8FF]/20 to-[#427F39]/20 blur-md opacity-50"></div>
       
-      {/* Logo always visible */}
       <div className="flex items-center relative z-10">
         <NanoMailLogo />
       </div>
       
-      {/* Mobile hamburger menu button */}
       {isMobile && (
         <button 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -136,7 +135,6 @@ export const Menu = ({
         </button>
       )}
       
-      {/* Navigation links - desktop or mobile expanded */}
       <div 
         className={`${isMobile ? 'absolute top-full mt-2 right-0 bg-black/90 border border-[#00D8FF]/30 rounded-xl overflow-hidden shadow-lg p-4 backdrop-blur-md transition-all duration-300' : 'flex items-center gap-6 relative z-10'} ${isMobile && !mobileMenuOpen ? 'opacity-0 invisible translate-y-[-10px]' : 'opacity-100 visible translate-y-0'}`}
       >
@@ -206,20 +204,15 @@ const NanoMailLogo = () => (
   <div className="flex items-center">
     <Link href="/" className="flex items-center">
     
-    <div
-      className="w-8 h-8 rounded-full bg-gradient-to-br from-[#00D8FF] to-[#427F39] flex items-center justify-center"
-    >
-
-      <span className="text-white text-sm font-bold">N</span>
-    </div>
-    <motion.span 
+    <Image src="/logo-mark.png" alt="NanoMail logo" width={32} height={32} priority />
+    <motion.span
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.3 }}
       className="ml-2 text-white font-bold text-lg"
     >
 
-      Nano<span className="text-[#11baa9]">Mail</span>
+      <span className="font-cooper font-normal">Nano</span><span className="text-[#11baa9]">Mail</span>
     </motion.span>
     </Link>
   </div>

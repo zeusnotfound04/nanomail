@@ -4,13 +4,8 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion } from "motion/react";
 import { format } from "date-fns";
 import { Email } from "./EmailList";
-import { Poppins } from "next/font/google";
 import DOMPurify from 'dompurify';
 
-const poppins = Poppins({
-  weight: "700",
-  subsets: ["latin"],
-});
 interface EmailDetailProps {
   email: Email | null;
   onBack?: () => void;
@@ -134,7 +129,7 @@ const EmailDetail: React.FC<EmailDetailProps> = ({ email, onBack }) => {
           </div>
         </div>
 
-        <h2 className="text-base sm:text-xl text-white font-medium mb-2 sm:mb-3 break-words"><span className={`font-bold text-[#01a0a5] ${poppins.className}`}>SUBJECT : </span> {email.subject}</h2>
+        <h2 className="text-base sm:text-xl text-white font-medium mb-2 sm:mb-3 break-words"><span className={`font-bold text-[#01a0a5]`}>SUBJECT : </span> {email.subject}</h2>
 
         <div className="flex justify-between items-center border-t border-[#00D8FF]/10 pt-2 sm:pt-3">
           <div className="flex items-center gap-2 sm:gap-3">
@@ -210,7 +205,6 @@ const EmailDetail: React.FC<EmailDetailProps> = ({ email, onBack }) => {
           background: rgba(0, 216, 255, 0.5);
         }
 
-        /* Email HTML content styling */
         .email-html-content {
           color: rgba(255, 255, 255, 0.9);
           font-size: 0.875rem;
@@ -226,7 +220,6 @@ const EmailDetail: React.FC<EmailDetailProps> = ({ email, onBack }) => {
           height: auto;
         }
 
-        /* Additional email content fixes */
         .email-html-content table {
           max-width: 100%;
           border-collapse: collapse;
