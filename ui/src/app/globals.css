@@ -1,11 +1,34 @@
 @import "tailwindcss";
 
-/* Cooper Lt BT is a licensed font — place the file at public/fonts/CooperLtBT.woff2 */
 @font-face {
   font-family: "Cooper Lt BT";
-  src: url("/fonts/CooperLtBT.woff2") format("woff2");
-  font-weight: normal;
+  src: url("/fonts/cooper-lt-bt/CooperLtBTLight.ttf") format("truetype");
+  font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cooper Lt BT";
+  src: url("/fonts/cooper-lt-bt/CooperLtBTLightItalic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cooper Lt BT";
+  src: url("/fonts/cooper-lt-bt/CooperLtBTBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cooper Lt BT";
+  src: url("/fonts/cooper-lt-bt/CooperLtBTBoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
   font-display: swap;
 }
 
