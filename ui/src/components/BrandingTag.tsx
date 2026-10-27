@@ -44,7 +44,7 @@ export default function BrandingTag() {
             repeatType: "mirror" 
           }}
         >
-          22k+ monthly mails processed!
+          50k+ monthly mails processed!
         </motion.p>
       </div>
     </motion.div>
